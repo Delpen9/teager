@@ -1,5 +1,9 @@
 import numpy as numpy 
 
+# ----------------------------------------
+# TODO: Make sure all test cases work
+# ----------------------------------------
+
 # array = numpy.array([[1,2,3,4,5], [1,2,3,4,5], [1,2,3,4,5]])
 # array = numpy.array([[1,2,3,4,5,6,7,8,9,10], [1,2,3,4,5,6,7,8,9,10]])
 # array = [[1,2,3,4,5], [1,2,3]]
@@ -7,6 +11,12 @@ import numpy as numpy
 # array = numpy.array([1,2,3,4,5])
 # array = numpy.array([1, 2])
 
+# Crop 2D Arrays
+def crop_center(teager_array, cropx, cropy):
+    y,x = teager_array.shape
+    startx = x//2 - cropx//2
+    starty = y//2 - cropy//2
+    return teager_array[starty:(starty + cropy), startx:(startx + cropx)]
 
 # Horizontal Teager
 def horizontal_teager(teager_array, teager_spread: int, teager_array_dimension: str):
@@ -29,29 +39,44 @@ def horizontal_teager(teager_array, teager_spread: int, teager_array_dimension: 
         except Exception:
             raise
 
-# ------------------------------------------------------------------          
-# TODO: Write all three types of functions seperately. *Crop* the image in the combination which are bigger than the smallest dimensions
-# ------------------------------------------------------------------
-
 # Vertical Teager
-def vertical_teager(teager_array, teager_spread: int): 
-    return
+def vertical_teager(teager_array, teager_spread: int):
+    temp_array = numpy.array([ [None] * len(teager_array[0]) ] * (len(teager_array) - 2 * teager_spread))
+    for row in range(len(teager_array)):
+        if (row != teager_spread - 1 and row != len(teager_array) - teager_spread):
+            i = teager_array[row][:] * teager_array[row][:]
+            j = teager_array[row + teager_spread][:] * teager_array[row - teager_spread][:]
+            temp_array[row] = i - j
+    return temp_array
 
 # 45/225 Degree Diagonal Teager
-def diagonal_teager_right(teager_array, teager_spread: int): 
-    return
+def diagonal_teager_right(teager_array, teager_spread: int):
+    temp_array = numpy.array([ [None] * (len(teager_array[0]) - 2 * teager_spread) ] * (len(teager_array) - 2 * teager_spread))
+    for row in range(len(teager_array)):
+        if (row != teager_spread - 1 and row != len(teager_array) - teager_spread):
+            i = teager_array[row][teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
+            j = teager_array[row - teager_spread][(teager_spread - 1):(-teager_spread - 1)] * teager_array[row + teager_spread][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
+            temp_array[row] = i - j
+    return temp_array
 
 # 135/315 Degree Diagonal Teager
 def diagonal_teager_left(teager_array, teager_spread: int): 
-    return
+    temp_array = numpy.array([ [None] * (len(teager_array[0]) - 2 * teager_spread) ] * (len(teager_array) - 2 * teager_spread))
+    for row in range(len(teager_array)):
+        if (row != teager_spread - 1 and row != len(teager_array) - teager_spread):
+            i = teager_array[row][teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
+            j = teager_array[row + teager_spread][(teager_spread - 1):(-teager_spread - 1)] * teager_array[row - teager_spread][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
+            temp_array[row] = i - j
+    return temp_array
 
-# ------------------------------------------------------------------
 
 # The Teager Operator
 def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_angle_two: str = None, teager_two_spread: int = None, *positional_parameters, **keyword_parameters):
-    if (type(teager_array) is not list and type(teager_array) is not numpy.ndarray):
-        print("Your teager array must be of type 'list' or 'numpy.ndarray'.")
-        return None
+    try:
+        if (type(teager_array) is not list and type(teager_array) is not numpy.ndarray):
+            raise Exception("Your teager array must be of type 'list' or 'numpy.ndarray'.")
+    except TypeError:
+	    raise
 
     # np.array teager_array
     else:
@@ -137,15 +162,15 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
                     return temp_array
 
                 elif (teager_angle_one == 'vertical'): 
-                    temp_array = vertical_teager(teager_array, teager_one_spread, '2D')
+                    temp_array = vertical_teager(teager_array, teager_one_spread)
                     return temp_array
 
                 elif (teager_angle_one == 'diagonal-right'): 
-                    temp_array = diagonal_teager_right(teager_array, teager_one_spread, '2D')
+                    temp_array = diagonal_teager_right(teager_array, teager_one_spread)
                     return temp_array
 
                 elif (teager_angle_one == 'diagonal-left'): 
-                    temp_array = diagonal_teager_left(teager_array, teager_one_spread, '2D')
+                    temp_array = diagonal_teager_left(teager_array, teager_one_spread)
                     return temp_array
 
                 else:
@@ -164,7 +189,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
                 try:
                     if (type(teager_angle_one) != str):
                         raise Exception("Your teager_angle_one must be of type: str.")
-                except:
+                except TypeError:
                     raise
 
                 try:
@@ -182,7 +207,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
                 try:
                     if (type(teager_angle_two) != str):
                         raise Exception("Your teager_angle_two must be of type: str.")
-                except:
+                except TypeError:
                     raise
 
                 try:
@@ -197,14 +222,59 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
                 except ValueError:
                     raise
 
-# ------------------------------------------------------------------
-# TODO: Write the combination functions
-# ------------------------------------------------------------------
+                if (teager_angle_one == 'horizontal' and teager_angle_two == 'vertical'):
+                    temp_array_one = horizontal_teager(teager_array, teager_one_spread, '2D')
+                    temp_array_one = crop_center(temp_array_one, 0, teager_two_spread)
 
-                # Put combination content here
-                return
+                    temp_array_two = vertical_teager(teager_array, teager_two_spread)
+                    temp_array_two = crop_center(temp_array_two, teager_one_spread, 0)
 
-# ------------------------------------------------------------------
+                    return temp_array_one + temp_array_two
+                
+                elif(teager_angle_one == 'horizontal' and teager_angle_two == 'diagonal-right'):
+                    temp_array_one = horizontal_teager(teager_array, teager_one_spread, '2D')
+                    temp_array_one = crop_center(temp_array_one, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread, teager_two_spread)
+
+                    temp_array_two = diagonal_teager_right(teager_array, teager_two_spread)
+                    temp_array_two = crop_center(temp_array_two, 0 if teager_one_spread - teager_two_spread < 1 else teager_one_spread - teager_two_spread, 0)
+
+                    return temp_array_one + temp_array_two
+
+                elif(teager_angle_one == 'horizontal' and teager_angle_two == 'diagonal-left'):
+                    temp_array_one = horizontal_teager(teager_array, teager_one_spread, '2D')
+                    temp_array_one = crop_center(temp_array_one, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread, teager_two_spread)
+
+                    temp_array_two = diagonal_teager_left(teager_array, teager_two_spread)
+                    temp_array_two = crop_center(temp_array_two, 0 if teager_one_spread - teager_two_spread < 1 else teager_one_spread - teager_two_spread, 0)
+
+                    return temp_array_one + temp_array_two
+
+                elif(teager_angle_one == 'vertical' and teager_angle_two == 'diagonal-right'):
+                    temp_array_one = vertical_teager(teager_array, teager_one_spread)
+                    temp_array_one = crop_center(temp_array_one, teager_two_spread, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread)
+
+                    temp_array_two = diagonal_teager_right(teager_array, teager_two_spread)   
+                    temp_array_two = crop_center(temp_array_two, 0, 0 if teager_one_spread - teager_two_spread < 1 else teager_one_spread - teager_two_spread)
+
+                    return temp_array_one + temp_array_two
+
+                elif(teager_angle_one == 'vertical' and teager_angle_two == 'diagonal-left'):
+                    temp_array_one = horizontal_teager(teager_array, teager_one_spread)
+                    temp_array_one = crop_center(temp_array_one, teager_two_spread, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread)
+
+                    temp_array_two = diagonal_teager_left(teager_array, teager_two_spread)
+                    temp_array_two = crop_center(temp_array_two, 0, 0 if teager_one_spread - teager_two_spread < 1 else teager_one_spread - teager_two_spread)
+
+                    return temp_array_one + temp_array_two
+
+                elif(teager_angle_one == 'diagonal-right' and teager_angle_two == 'diagonal-left'):
+                    temp_array_one = diagonal_teager_right(teager_array, teager_one_spread)
+                    temp_array_one = crop_center(temp_array_one, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread)
+                    
+                    temp_array_two = diagonal_teager_left(teager_array, teager_two_spread)
+                    temp_array_two = crop_center(temp_array_two, 0 if teager_one_spread - teager_two_spread < 1 else teager_one_spread - teager_two_spread, 0 if teager_one_spread - teager_two_spread < 1 else teager_one_spread - teager_two_spread)
+
+                    return temp_array_one + temp_array_two
 
         else:
             try:
