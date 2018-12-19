@@ -59,7 +59,8 @@ The teager-py package is a clean Python solution to performing a Teager operatio
 the Teager operation within the program
 
 <b>teager_angle_one:</b> (str) - can any of the following options within the list:
-     ['horizontal', 'vertical', 'diagonal-right', 'diagonal-left']
+
+     <ul>['horizontal', 'vertical', 'diagonal-right', 'diagonal-left']</ul>
      
      <b> horizontal: </b> - the teager operation is looping through a row of the array, 
       whether it is 1-dimensional or 2-dimensional (matrix).
@@ -68,10 +69,12 @@ the Teager operation within the program
       meaning the array is 2-dimensional (matrix).
      
 <b>teager_one_spread:</b> (int) - the radius from the current number in a loop. 
-<em>The teager operation:</em> 
-     <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - 1</sub> * x<sub>t + 1</sub></b>
-The 1 within the t - 1 and t + 1 is the radius such that <em>(with r being the radius)</em>:
-     <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - r</sub> * x<sub>t + r</sub></b>
+
+     <em>The teager operation:</em> 
+          <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - 1</sub> * x<sub>t + 1</sub></b>
+     
+     The 1 within the t - 1 and t + 1 is the radius such that <em>(with r being the radius)</em>:
+          <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - r</sub> * x<sub>t + r</sub></b>
 
 </pre>
 
