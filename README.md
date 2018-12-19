@@ -46,19 +46,20 @@ The teager-py package is a clean Python solution to performing a Teager operatio
        
 <b>Teager Parameters</b>
 <pre>
-               def Teager(
-               teager_array, 
-               teager_angle_one: str, 
-               teager_one_spread: int, 
-               teager_angle_two: str = None, 
-               teager_two_spread: int = None, 
-               *positional_parameters, 
-               **keyword_parameters)
+     def Teager(
+     teager_array, 
+     teager_angle_one: str, 
+     teager_one_spread: int, 
+     teager_angle_two: str = None, 
+     teager_two_spread: int = None, 
+     *positional_parameters, 
+     **keyword_parameters)
      
-<b>teager_array:</b> (list or numpy.ndarray()) - the input array of which will 
-be manipulated by the Teager operation within the program
+<b>teager_array:</b> (list or numpy.ndarray()) - the input array of which will be manipulated by 
+the Teager operation within the program
 
-
+<b>teager_angle_one:</b> (str) - the radius from the current number in a loop. 
+Within the teager operation: Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - 1</sub>*x<sub>t + 1</sub>
 
 </pre>
 
