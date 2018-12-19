@@ -98,7 +98,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
                 raise
             
             try:
-                if (teager_angle_one != 'horizontal'):
+                if (teager_angle_one.lower() != 'horizontal'):
                     raise Exception("When your teager array is one dimensional, your teager_angle_one must be 'horizontal'.")
             except ValueError:
                 raise
@@ -157,19 +157,19 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
                 except TypeError:
                     raise
 
-                if (teager_angle_one == 'horizontal'):
+                if (teager_angle_one.lower() == 'horizontal'):
                     temp_array = horizontal_teager(teager_array, teager_one_spread, '2D')
                     return temp_array.astype('int')
 
-                elif (teager_angle_one == 'vertical'): 
+                elif (teager_angle_one.lower() == 'vertical'): 
                     temp_array = vertical_teager(teager_array, teager_one_spread)
                     return temp_array.astype('int')
 
-                elif (teager_angle_one == 'diagonal-right'): 
+                elif (teager_angle_one.lower() == 'diagonal-right'): 
                     temp_array = diagonal_teager_right(teager_array, teager_one_spread)
                     return temp_array.astype('int')
 
-                elif (teager_angle_one == 'diagonal-left'): 
+                elif (teager_angle_one.lower() == 'diagonal-left'): 
                     temp_array = diagonal_teager_left(teager_array, teager_one_spread)
                     return temp_array.astype('int')
 
@@ -193,7 +193,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
                     raise
 
                 try:
-                    if (teager_angle_one not in ['horizontal', 'vertical', 'diagonal-right', 'diagonal-left']):
+                    if (teager_angle_one.lower() not in ['horizontal', 'vertical', 'diagonal-right', 'diagonal-left']):
                         raise Exception("Your teager_angle_one must be a valid input of: 'horizontal', 'vertical', 'diagonal-right', or 'diagonal-left'.")
                 except ValueError:
                     raise
@@ -211,7 +211,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
                     raise
 
                 try:
-                    if (teager_angle_two not in ['horizontal', 'vertical', 'diagonal-right', 'diagonal-left']):
+                    if (teager_angle_two.lower() not in ['horizontal', 'vertical', 'diagonal-right', 'diagonal-left']):
                         raise Exception("Your teager_angle_two must be a valid input of: 'horizontal', 'vertical', 'diagonal-right', or 'diagonal-left'.")
                 except ValueError:
                     raise
@@ -222,7 +222,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
                 except ValueError:
                     raise
 
-                if (teager_angle_one == 'horizontal' and teager_angle_two == 'vertical'):
+                if (teager_angle_one.lower() == 'horizontal' and teager_angle_two.lower() == 'vertical'):
                     temp_array_one = horizontal_teager(teager_array, teager_one_spread, '2D')
                     temp_array_one = crop_center(temp_array_one, 0, teager_two_spread)
 
@@ -231,7 +231,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
 
                     return (temp_array_one + temp_array_two).astype('int')
                 
-                elif(teager_angle_one == 'horizontal' and teager_angle_two == 'diagonal-right'):
+                elif(teager_angle_one.lower() == 'horizontal' and teager_angle_two.lower() == 'diagonal-right'):
                     temp_array_one = horizontal_teager(teager_array, teager_one_spread, '2D')
                     temp_array_one = crop_center(temp_array_one, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread, teager_two_spread)
 
@@ -240,7 +240,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
 
                     return (temp_array_one + temp_array_two).astype('int')
 
-                elif(teager_angle_one == 'horizontal' and teager_angle_two == 'diagonal-left'):
+                elif(teager_angle_one.lower() == 'horizontal' and teager_angle_two.lower() == 'diagonal-left'):
                     temp_array_one = horizontal_teager(teager_array, teager_one_spread, '2D')
                     temp_array_one = crop_center(temp_array_one, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread, teager_two_spread)
 
@@ -249,7 +249,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
 
                     return (temp_array_one + temp_array_two).astype('int')
 
-                elif(teager_angle_one == 'vertical' and teager_angle_two == 'diagonal-right'):
+                elif(teager_angle_one.lower() == 'vertical' and teager_angle_two.lower() == 'diagonal-right'):
                     temp_array_one = vertical_teager(teager_array, teager_one_spread)
                     temp_array_one = crop_center(temp_array_one, teager_two_spread, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread)
 
@@ -258,8 +258,8 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
 
                     return (temp_array_one + temp_array_two).astype('int')
 
-                elif(teager_angle_one == 'vertical' and teager_angle_two == 'diagonal-left'):
-                    temp_array_one = horizontal_teager(teager_array, teager_one_spread)
+                elif(teager_angle_one.lower() == 'vertical' and teager_angle_two.lower() == 'diagonal-left'):
+                    temp_array_one = vertical_teager(teager_array, teager_one_spread)
                     temp_array_one = crop_center(temp_array_one, teager_two_spread, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread)
 
                     temp_array_two = diagonal_teager_left(teager_array, teager_two_spread)
@@ -267,7 +267,7 @@ def Teager(teager_array, teager_angle_one: str, teager_one_spread: int, teager_a
 
                     return (temp_array_one + temp_array_two).astype('int')
 
-                elif(teager_angle_one == 'diagonal-right' and teager_angle_two == 'diagonal-left'):
+                elif(teager_angle_one.lower() == 'diagonal-right' and teager_angle_two.lower() == 'diagonal-left'):
                     temp_array_one = diagonal_teager_right(teager_array, teager_one_spread)
                     temp_array_one = crop_center(temp_array_one, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread, 0 if teager_two_spread - teager_one_spread < 1 else teager_two_spread - teager_one_spread)
                     
