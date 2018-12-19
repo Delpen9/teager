@@ -62,10 +62,13 @@ the Teager operation within the program
      ['horizontal', 'vertical', 'diagonal-right', 'diagonal-left']
      
      <b> horizontal: </b> - the teager operation is looping through a row of the array, 
-     whether it is 1-dimensional or 2-dimensional (matrix).
+      whether it is 1-dimensional or 2-dimensional (matrix).
+      
+     <b> vertical: </b> - the teager operation is looping through the columns of the array,
+      meaning the array is 2-dimensional (matrix).
      
 <b>teager_one_spread:</b> (int) - the radius from the current number in a loop. 
-Within the teager operation: 
+<em>The teager operation:</em> 
      <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - 1</sub> * x<sub>t + 1</sub></b>
 The 1 within the t - 1 and t + 1 is the radius such that <em>(with r being the radius)</em>:
      <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - r</sub> * x<sub>t + r</sub></b>
