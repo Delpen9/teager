@@ -3,6 +3,10 @@ The teager-py package is a clean Python solution to performing a Teager operatio
 <b>To install this package on your computer, run the command:</b><br> 
 <pre>
      pip install teager-py
+     
+     or
+     
+     https://github.com/Delpen9/teager.git
 </pre>
 
 <b>Dependencies: </b><br>
