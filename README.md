@@ -62,7 +62,7 @@ The teager-py package is a clean Python solution to performing a Teager operatio
 <b>teager_array:</b> (list or numpy.ndarray()) - the input array of which will be manipulated by 
 the Teager operation within the program
 
-<b>teager_angle_one:</b> (str) - can any of the following options within the list:
+<b>teager_angle_one:</b> (str) - can be any of the following options within the list:
 
      <b> ['horizontal', 'vertical', 'diagonal-right', 'diagonal-left'] </b>
      
