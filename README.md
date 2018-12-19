@@ -94,7 +94,8 @@ The teager spread can be either 1 or 2.
 <b>teager_two_spread:(should only exist when there is a teager_angle_two parameter) </b> (int) - the radius 
 from the current number in a loop. The teager spread can be either 1 or 2. 
 
-     This is the same as teager_one_spread, but instead of changing the radius of teager_angle_one, it determines the radius      of teager_angle_two.
+     This is the same as teager_one_spread, but instead of changing the radius of teager_angle_one, 
+     it determines the radius of teager_angle_two.
 
 </pre>
 
