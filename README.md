@@ -59,7 +59,10 @@ The teager-py package is a clean Python solution to performing a Teager operatio
 the Teager operation within the program
 
 <b>teager_one_spread:</b> (int) - the radius from the current number in a loop. 
-Within the teager operation: Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - 1</sub> * x<sub>t + 1</sub>
+Within the teager operation: 
+     <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - 1</sub> * x<sub>t + 1</sub></b>
+The 1 within the t - 1 and t + 1 is the radius such that <em>(with r being the radius)</em>:
+     <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - r</sub> * x<sub>t + r</sub></b>
 
 </pre>
 
