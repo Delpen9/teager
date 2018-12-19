@@ -58,6 +58,10 @@ The teager-py package is a clean Python solution to performing a Teager operatio
 <b>teager_array:</b> (list or numpy.ndarray()) - the input array of which will be manipulated by 
 the Teager operation within the program
 
+<b>teager_angle_one:</b> (str) - can any of the following options within the list:
+     ['horizontal', 'vertical', 'diagonal-right', 'diagonal-left']     
+     <b> horizontal: </b> - the teager operation is looping through a row of the array, whether it is 1-dimensional or 2-          dimensional (matrix).
+     
 <b>teager_one_spread:</b> (int) - the radius from the current number in a loop. 
 Within the teager operation: 
      <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - 1</sub> * x<sub>t + 1</sub></b>
