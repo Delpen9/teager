@@ -1,0 +1,8 @@
+setup.py
+teager_py/__init__.py
+teager_py/teager.py
+teager_py.egg-info/PKG-INFO
+teager_py.egg-info/SOURCES.txt
+teager_py.egg-info/dependency_links.txt
+teager_py.egg-info/not-zip-safe
+teager_py.egg-info/top_level.txt
