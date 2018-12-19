@@ -1,13 +1,21 @@
+The teager-py package is a clean Python solution to performing a Teager operation.
+
 <b>To install this package on your computer, run the command:</b><br> 
 <pre>
      pip install teager-py
 </pre>
 
-The teager-py package is a clean Python solution to performing a Teager operation.
-
 <b>Dependencies: </b><br>
 <pre>
-     numpy
+     (Linux/macOS)
+     sudo apt install python3-pip
+     sudo apt install python3-numpy
+     
+     or 
+     
+     (Windows)
+     pip install "numpy‑1.14.2+mkl‑cp36‑cp36m‑win32.whl"
+     
 </pre>
   
  <b> How to use within your Python CLI: </b>
