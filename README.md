@@ -67,14 +67,22 @@ the Teager operation within the program
       
      <b> vertical: </b> - the teager operation is looping through the columns of the array,
       meaning the array is 2-dimensional (matrix).
+      
+     <b> diagonal-right: </b> - the teager operation is looping through both the columns and rows of 
+     the array at an angle of 45 degrees (x<sub>t+1</sub>) and 225 degrees (x<sub>t-1</sub>) 
+     about the current value in a loop.
+     
+     <b> diagonal-left:  </b> - the teager operation is looping through both the columns and rows of
+     the array at an angle of 135 degrees (x<sub>t+1</sub>) and 315 degrees (x<sub>t-1</sub>) 
+     about the current value in a loop.
      
 <b>teager_one_spread:</b> (int) - the radius from the current number in a loop. The teager spread can be either 1 or 2. 
 
      The teager operation: 
-          <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - 1</sub> * x<sub>t + 1</sub></b>
+          <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t-1</sub> * x<sub>t+1</sub></b>
      
      The 1 within the t - 1 and t + 1 is the radius such that <em>(with r being the radius)</em>:
-          <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t - r</sub> * x<sub>t + r</sub></b>
+          <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t-r</sub> * x<sub>t+r</sub></b>
 
 </pre>
 
