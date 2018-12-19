@@ -1,5 +1,5 @@
 <b>To install this package on your computer, run the command:</b><br> 
-pip install teager-py
+<p style = 'margin-left:10px'>pip install teager-py</p>
   
 The teager-py package is a clean Python solution to performing a Teager operation.
 
