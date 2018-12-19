@@ -3,11 +3,10 @@ To install this package on your computer, run the command:
   
 The teager-py package is a clean Python solution to performing a Teager operation.
 
-<b>Dependencies</b>
+<b>Dependencies: /n</b>
   numpy
   
- <b> How to use </b>
-  Within your Python CLI:
+ <b> How to use within your Python CLI: </b>
     
     // You must have numpy dependency installed and imported
     
