@@ -89,13 +89,40 @@ The teager spread can be either 1 or 2.
 
      <b> [None, 'horizontal', 'vertical', 'diagonal-right', 'diagonal-left'] </b>
      
-     This field can be left blank as seen within the 'How to use within your Python CLI' section.
+      This field can be left blank as seen within the 'How to use within your Python CLI' section.
      
 <b>teager_two_spread:(should only exist when there is a teager_angle_two parameter) </b> (int) - the radius 
 from the current number in a loop. The teager spread can be either 1 or 2. 
 
      This is the same as teager_one_spread, but instead of changing the radius of teager_angle_one, 
      it determines the radius of teager_angle_two.
+
+</pre>
+
+<b>Code Snippets</b>
+<pre>
+
+# Horizontal Teager
+def horizontal_teager(teager_array, teager_spread: int, teager_array_dimension: str):
+    if (teager_array_dimension == '1D' or teager_array_dimension == '1d'): 
+        i = teager_array[teager_spread:-teager_spread] * teager_array[teager_spread:-teager_spread]
+        j = teager_array[(teager_spread - 1):(-teager_spread - 1)] * teager_array[(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
+        return i - j
+
+    elif (teager_array_dimension == '2D' or teager_array_dimension == '2d'): 
+        temp_array = numpy.array([ [None] * (len(teager_array[0]) - 2 * teager_spread) ] * len(teager_array))
+        for row in range(len(teager_array)):
+            i = teager_array[row][teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
+            j = teager_array[row][(teager_spread - 1):(-teager_spread - 1)] * teager_array[row][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
+            temp_array[row] = i - j
+        return temp_array.astype('int')
+
+    else:
+        try:
+            raise Exception("Input a valid teager_array_dimension: '1d', '1D', '2d', or '2D'.")
+        except Exception:
+            raise
+            
 
 </pre>
 
