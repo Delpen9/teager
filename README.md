@@ -102,7 +102,7 @@ from the current number in a loop. The teager spread can be either 1 or 2.
 <b>Code Snippets</b>
 <pre>
 
-# Horizontal Teager
+<b># Horizontal Teager</b>
 def horizontal_teager(teager_array, teager_spread: int, teager_array_dimension: str):
     if (teager_array_dimension == '1D' or teager_array_dimension == '1d'): 
         i = teager_array[teager_spread:-teager_spread] * teager_array[teager_spread:-teager_spread]
@@ -123,7 +123,36 @@ def horizontal_teager(teager_array, teager_spread: int, teager_array_dimension: 
         except Exception:
             raise
             
+<b># Vertical Teager</b>
+def vertical_teager(teager_array, teager_spread: int):
+    temp_array = numpy.array([ [None] * len(teager_array[0]) ] * (len(teager_array) - 2 * teager_spread))
+    for row in range(len(teager_array)):
+        if (row != teager_spread - 1 and row != len(teager_array) - teager_spread):
+            i = teager_array[row][:] * teager_array[row][:]
+            j = teager_array[row + teager_spread][:] * teager_array[row - teager_spread][:]
+            temp_array[row] = i - j
+    return temp_array.astype('int')
 
+<b># 45/225 Degree Diagonal Teager</b>
+def diagonal_teager_right(teager_array, teager_spread: int):
+    temp_array = numpy.array([ [None] * (len(teager_array[0]) - 2 * teager_spread) ] * (len(teager_array) - 2 * teager_spread))
+    for row in range(len(teager_array)):
+        if (row != teager_spread - 1 and row != len(teager_array) - teager_spread):
+            i = teager_array[row][teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
+            j = teager_array[row - teager_spread][(teager_spread - 1):(-teager_spread - 1)] * teager_array[row + teager_spread][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
+            temp_array[row] = i - j
+    return temp_array.astype('int')
+
+<b># 135/315 Degree Diagonal Teager</b>
+def diagonal_teager_left(teager_array, teager_spread: int): 
+    temp_array = numpy.array([ [None] * (len(teager_array[0]) - 2 * teager_spread) ] * (len(teager_array) - 2 * teager_spread))
+    for row in range(len(teager_array)):
+        if (row != teager_spread - 1 and row != len(teager_array) - teager_spread):
+            i = teager_array[row][teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
+            j = teager_array[row + teager_spread][(teager_spread - 1):(-teager_spread - 1)] * teager_array[row - teager_spread][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
+            temp_array[row] = i - j
+    return temp_array.astype('int')
+    
 </pre>
 
     
