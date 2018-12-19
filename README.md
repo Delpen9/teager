@@ -62,19 +62,19 @@ the Teager operation within the program
 
      <b> ['horizontal', 'vertical', 'diagonal-right', 'diagonal-left'] </b>
      
-     <b> horizontal: </b> - the teager operation is looping through a row of the array, 
+     <b> horizontal </b> - the teager operation is looping through a row of the array, 
       whether it is 1-dimensional or 2-dimensional (matrix).
       
-     <b> vertical: </b> - the teager operation is looping through the columns of the array,
+     <b> vertical </b> - the teager operation is looping through the columns of the array,
       meaning the array is 2-dimensional (matrix).
       
-     <b> diagonal-right: </b> - the teager operation is looping through both the columns and rows of 
-     the array at an angle of 45 degrees (x<sub>t+1</sub>) and 225 degrees (x<sub>t-1</sub>) 
-     about the current value in a loop.
+     <b> diagonal-right </b> - the teager operation is looping through both the columns and rows of 
+      the array at an angle of 45 degrees (x<sub>t+1</sub>) and 225 degrees (x<sub>t-1</sub>) 
+      about the current value in a loop.
      
-     <b> diagonal-left:  </b> - the teager operation is looping through both the columns and rows of
-     the array at an angle of 135 degrees (x<sub>t+1</sub>) and 315 degrees (x<sub>t-1</sub>) 
-     about the current value in a loop.
+     <b> diagonal-left </b> - the teager operation is looping through both the columns and rows of
+      the array at an angle of 135 degrees (x<sub>t+1</sub>) and 315 degrees (x<sub>t-1</sub>) 
+      about the current value in a loop.
      
 <b>teager_one_spread:</b> (int) - the radius from the current number in a loop. The teager spread can be either 1 or 2. 
 
