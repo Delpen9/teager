@@ -12,13 +12,13 @@ The teager-py package is a clean Python solution to performing a Teager operatio
 <b>Dependencies: </b><br>
 <pre>
      (Linux/macOS)
-     sudo apt install python3-pip
-     sudo apt install python3-numpy
+     $ sudo apt install python3-pip
+     $ sudo apt install python3-numpy
      
      or 
      
      (Windows)
-     pip install "numpy‑1.14.2+mkl‑cp36‑cp36m‑win32.whl"
+     $ pip install "numpy‑1.14.2+mkl‑cp36‑cp36m‑win32.whl"
      
 </pre>
   
