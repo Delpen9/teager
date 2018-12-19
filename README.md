@@ -85,13 +85,13 @@ The teager spread can be either 1 or 2.
      The 1 within the t - 1 and t + 1 is the radius such that <em>(with r being the radius)</em>:
           <b>Teager(x<sub>t</sub>) = x<sub>t</sub><sup>2</sup> + x<sub>t-r</sub> * x<sub>t+r</sub></b>
 
-<teager_angle_two: (optional)</b> (str) - can be any of the following options within the list:
+<b>teager_angle_two: (optional)</b> (str) - can be any of the following options within the list:
 
      <b> [None, 'horizontal', 'vertical', 'diagonal-right', 'diagonal-left'] </b>
      
      This field can be left blank as seen within the 'How to use within your Python CLI' section.
      
-<teager_two_spread:</b> (int) - the radius from the current number in a loop. 
+<b>teager_two_spread:</b> (int) - the radius from the current number in a loop. 
 The teager spread can be either 1 or 2. 
 
      This is the same as teager_one_spread, but instead of changing the radius of teager_angle_one, it determines the radius      of teager_angle_two.
