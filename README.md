@@ -1,10 +1,14 @@
 <b>To install this package on your computer, run the command:</b><br> 
-<p style = 'margin-left:10px'>pip install teager-py</p>
-  
+<pre>
+     pip install teager-py
+</pre>
+
 The teager-py package is a clean Python solution to performing a Teager operation.
 
 <b>Dependencies: </b><br>
-  numpy
+<pre>
+     numpy
+</pre>
   
  <b> How to use within your Python CLI: </b>
     
