@@ -1,4 +1,4 @@
-The teager-py package is a clean Python solution to performing a Teager operation.
+The teager-py package is a clean Python solution to performing a Teager operation on a raw signal in the form of a 1-Dimensional or 2-Dimensional array.
 
 <b>To install this package on your computer, run the command:</b><br> 
 <pre>
