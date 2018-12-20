@@ -48,7 +48,7 @@ The teager-py package is a clean Python solution to performing a Teager operatio
        [0], 
        [0]]
        
-<b>Teager Parameters</b>
+<b>Teager Parameters:</b>
 <pre>
      def Teager(
      teager_array, 
@@ -103,7 +103,7 @@ from the current number in a loop. The teager spread can be either 1 or 2.
 
 </pre>
 
-<b>Code Snippets</b>
+<b>Code Snippets:</b>
 <pre>
 
 <b># Horizontal Teager</b>
