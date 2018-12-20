@@ -164,7 +164,8 @@ def diagonal_teager_left(teager_array, teager_spread: int):
 
 2D Vertical             |  2D Diagonal-Right
 :-------------------------:|:-------------------------:
-<img src = "https://user-images.githubusercontent.com/25447440/50316686-4796d080-047d-11e9-8161-b0520e2639c0.png" width = "500">  | <img src="" width = "500">
+<img src = "https://user-images.githubusercontent.com/25447440/50316686-4796d080-047d-11e9-8161-b0520e2639c0.png" width = "500">  | <img src="https://user-images.githubusercontent.com/25447440/50317339-af9ae600-0480-11e9-96ae-e3aac917a8eb.png" width = "500">
+
 
 
 2D Diagonal-Left             |  2D Diagonal-Right
