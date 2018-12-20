@@ -159,4 +159,7 @@ def diagonal_teager_left(teager_array, teager_spread: int):
     
 </pre>
 
+![teager_horizontal_1d](https://user-images.githubusercontent.com/25447440/50270913-ba119d00-03f8-11e9-9e71-254b43f41698.png)
+
+![teager_horizontal_2d](https://user-images.githubusercontent.com/25447440/50271036-1a084380-03f9-11e9-970e-7f86c8d4c609.png)
     
