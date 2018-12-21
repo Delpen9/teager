@@ -174,7 +174,7 @@ def diagonal_teager_left(teager_array, teager_spread: int):
 
 
 
-2D Diagonal-Left and Diagonal-Right            |  Teager_one_Spread and Teager_Two_Spread = 2
+2D Diagonal-Left and Diagonal-Right            |  Teager_One_Spread and Teager_Two_Spread = 2
 :-------------------------:|:-------------------------:           
-<img src = "https://user-images.githubusercontent.com/25447440/50316742-9d6b7880-047d-11e9-85e6-7baefd1521a3.png" width = "500"> | <img src = "https://user-images.githubusercontent.com/25447440/50316718-74e37e80-047d-11e9-807c-9a2a1350ed06.png" width = "500">
+<img src = "https://user-images.githubusercontent.com/25447440/50317942-e7575d00-0483-11e9-96a0-b27f6e3f9d77.png" width = "500"> | <img src = "https://user-images.githubusercontent.com/25447440/50317953-ffc77780-0483-11e9-91a5-6db663ea65b2.png" width = "500">
 
