@@ -116,10 +116,10 @@ def horizontal_teager(teager_array, teager_spread: int, teager_array_dimension: 
     elif (teager_array_dimension == '2D' or teager_array_dimension == '2d'): 
         temp_array = numpy.array([ [None] * (len(teager_array[0]) - 2 * teager_spread) ] * len(teager_array))
         for row in range(len(teager_array)):
-            i = teager_ar                    minimum_shape_value = minimum_crop(temp_array_one, temp_array_two)teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
-            j = teager_ar(teager_spread - 1):(-teager_spread - 1)] * teager_array[row][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
-            temp_array[ro                    temp_array_one = crop_center(temp_array_one, minimum_shape_value, minimum_shape_value)j
-        return temp_array                    temp_array_two = crop_center(temp_array_two, minimum_shape_value, minimum_shape_value)
+            i = teager_array[row][teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
+            j = teager_array[row][(teager_spread - 1):(-teager_spread - 1)] * teager_array[row][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
+            temp_array[row] = i - j
+        return temp_array
 
     else:
         try:
