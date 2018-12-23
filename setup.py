@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name = 'teager_py',
-      version = '0.1',
+      version = '0.4',
       description = 'A module to cleanly run a Teager operation.',
       url = 'https://github.com/Delpen9/teager_py',
       author = 'Ian Dover',
