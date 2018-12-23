@@ -34,12 +34,12 @@ The teager-py package is a clean Python solution to performing a Teager operatio
     $ test_array = numpy.array([[1, 1, 1], [1, 1, 1], [1, 1, 1]])
     $ test_array = [[1,1,1], [1,1,1], [1,1,1]]
     
-    $ from teager import Teager
+    $ from teager_py import Teager
     
     // There are two ways of running the Teager operation
     
     $ new_array = Teager(test_array, 'horizontal', 1)
-    $ new_array = teager.Teager(test_array, 'horizontal', 1)
+    $ new_array = teager_py.Teager(test_array, 'horizontal', 1)
     
     // Display the output. It will be a numpy.ndarray with dtype = 'int'
     
@@ -106,7 +106,7 @@ from the current number in a loop. The teager spread can be either 1 or 2.
 <b>Code Snippets:</b>
 <pre>
 
-<b># Horizontal Teager</b>
+# Horizontal Teager
 def horizontal_teager(teager_array, teager_spread: int, teager_array_dimension: str):
     if (teager_array_dimension == '1D' or teager_array_dimension == '1d'): 
         i = teager_array[teager_spread:-teager_spread] * teager_array[teager_spread:-teager_spread]
@@ -116,46 +116,46 @@ def horizontal_teager(teager_array, teager_spread: int, teager_array_dimension: 
     elif (teager_array_dimension == '2D' or teager_array_dimension == '2d'): 
         temp_array = numpy.array([ [None] * (len(teager_array[0]) - 2 * teager_spread) ] * len(teager_array))
         for row in range(len(teager_array)):
-            i = teager_array[row][teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
-            j = teager_array[row][(teager_spread - 1):(-teager_spread - 1)] * teager_array[row][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
-            temp_array[row] = i - j
-        return temp_array.astype('int')
+            i = teager_ar                    minimum_shape_value = minimum_crop(temp_array_one, temp_array_two)teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
+            j = teager_ar(teager_spread - 1):(-teager_spread - 1)] * teager_array[row][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
+            temp_array[ro                    temp_array_one = crop_center(temp_array_one, minimum_shape_value, minimum_shape_value)j
+        return temp_array                    temp_array_two = crop_center(temp_array_two, minimum_shape_value, minimum_shape_value)
 
     else:
         try:
             raise Exception("Input a valid teager_array_dimension: '1d', '1D', '2d', or '2D'.")
         except Exception:
             raise
-            
-<b># Vertical Teager</b>
+
+# Vertical Teager
 def vertical_teager(teager_array, teager_spread: int):
     temp_array = numpy.array([ [None] * len(teager_array[0]) ] * (len(teager_array) - 2 * teager_spread))
     for row in range(len(teager_array)):
-        if (row != teager_spread - 1 and row != len(teager_array) - teager_spread):
+        if (row > teager_spread - 1 and row < len(teager_array) - teager_spread):
             i = teager_array[row][:] * teager_array[row][:]
             j = teager_array[row + teager_spread][:] * teager_array[row - teager_spread][:]
-            temp_array[row] = i - j
-    return temp_array.astype('int')
+            temp_array[row - teager_spread] = i - j
+    return temp_array
 
-<b># 45/225 Degree Diagonal Teager</b>
+# 45/225 Degree Diagonal Teager
 def diagonal_teager_right(teager_array, teager_spread: int):
     temp_array = numpy.array([ [None] * (len(teager_array[0]) - 2 * teager_spread) ] * (len(teager_array) - 2 * teager_spread))
     for row in range(len(teager_array)):
-        if (row != teager_spread - 1 and row != len(teager_array) - teager_spread):
+        if (row > teager_spread - 1 and row < len(teager_array) - teager_spread):
             i = teager_array[row][teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
             j = teager_array[row - teager_spread][(teager_spread - 1):(-teager_spread - 1)] * teager_array[row + teager_spread][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
-            temp_array[row] = i - j
-    return temp_array.astype('int')
+            temp_array[row - teager_spread] = i - j
+    return temp_array
 
-<b># 135/315 Degree Diagonal Teager</b>
+# 135/315 Degree Diagonal Teager
 def diagonal_teager_left(teager_array, teager_spread: int): 
     temp_array = numpy.array([ [None] * (len(teager_array[0]) - 2 * teager_spread) ] * (len(teager_array) - 2 * teager_spread))
     for row in range(len(teager_array)):
-        if (row != teager_spread - 1 and row != len(teager_array) - teager_spread):
+        if (row > teager_spread - 1 and row < len(teager_array) - teager_spread):
             i = teager_array[row][teager_spread:-teager_spread] * teager_array[row][teager_spread:-teager_spread]
             j = teager_array[row + teager_spread][(teager_spread - 1):(-teager_spread - 1)] * teager_array[row - teager_spread][(teager_spread + 1):None if (-teager_spread + 1) == 0 else (-teager_spread + 1)]
-            temp_array[row] = i - j
-    return temp_array.astype('int')
+            temp_array[row - teager_spread] = i - j
+    return temp_array
     
 </pre>
 1D Horizontal             |  2D Horizontal
