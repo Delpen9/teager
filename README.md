@@ -34,7 +34,7 @@ The teager-py package is a clean Python solution to performing a Teager operatio
     $ test_array = numpy.array([[1, 1, 1], [1, 1, 1], [1, 1, 1]])
     $ test_array = [[1,1,1], [1,1,1], [1,1,1]]
     
-    $ from teager_py import Teager
+    $ <b>from teager_py import Teager</b>
     
     // There are two ways of running the Teager operation
     
