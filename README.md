@@ -158,6 +158,11 @@ def diagonal_teager_left(teager_array, teager_spread: int):
     return temp_array
     
 </pre>
+
+**NOTICE**: <br />
+This is the updated import statement for the Teager package:<br />
+**from teager_py import Teager**
+
 1D Horizontal             |  2D Horizontal
 :-------------------------:|:-------------------------:
 <img src = "https://user-images.githubusercontent.com/25447440/50270913-ba119d00-03f8-11e9-9e71-254b43f41698.png" width = "500">  |  <img src = "https://user-images.githubusercontent.com/25447440/50315450-7eb6b300-0478-11e9-8704-28dbd015eaf8.png" width = "500">
@@ -166,13 +171,17 @@ def diagonal_teager_left(teager_array, teager_spread: int):
 :-------------------------:|:-------------------------:
 <img src = "https://user-images.githubusercontent.com/25447440/50316686-4796d080-047d-11e9-8161-b0520e2639c0.png" width = "500">  | <img src="https://user-images.githubusercontent.com/25447440/50317339-af9ae600-0480-11e9-96ae-e3aac917a8eb.png" width = "500">
 
-
+**NOTICE**: <br />
+This is the updated import statement for the Teager package:<br />
+**from teager_py import Teager**
 
 2D Diagonal-Left             |  2D Diagonal-Right
 :-------------------------:|:-------------------------:           
 <img src = "https://user-images.githubusercontent.com/25447440/50316742-9d6b7880-047d-11e9-85e6-7baefd1521a3.png" width = "500"> | <img src = "https://user-images.githubusercontent.com/25447440/50316718-74e37e80-047d-11e9-807c-9a2a1350ed06.png" width = "500">
 
-
+**NOTICE**: <br />
+This is the updated import statement for the Teager package:<br />
+**from teager_py import Teager**
 
 2D Diagonal-Left and Diagonal-Right            |  Teager_One_Spread and Teager_Two_Spread = 2
 :-------------------------:|:-------------------------:           
